@@ -17,17 +17,12 @@
 				margin-top: 0px;
 			}
 
-			.el-header {
-				margin-left: 31%;
-				width: 40%;
-				margin-top: 20%;
+			/* 搜索组件样式 */
+			.search {
+				margin-left: 28%;
+				width: 45%;
+				margin-top: 18%;
 				background-color: rgba(0, 0, 0, 0);
-			}
-
-			.input-with-select {
-				background-color: rgb(0, 0, 0, 0);
-				border: 0px;
-				color: rgb(250, 250, 248);
 			}
 
 			.el-input__inner {
@@ -36,60 +31,59 @@
 				color: rgb(250, 250, 248);
 			}
 
-
+			/* 选择下拉框大小 */
 			.el-select .el-input {
 				width: 80px;
 			}
 
-			.el-input-group__append .el-button--default {
+			/* 搜索图标大小 */
+			.input-with-select>.el-input-group__append .el-button--default {
 				width: 76px;
 			}
 
-			.el-menu-demo,
-			.el-menu{
+			/* -------------------------------------------------------------------------------- */
+			/* 导航栏样式 */
+			#app>.el-menu {
 				background-color: rgb(1, 1, 1, 0.1);
 				left: 10%;
 				width: 80%;
-				border: 0px;
 				height: 40px;
-				padding-top: 0px;
-				line-height: 45px;
 			}
 
-			.el-submenu,
-			.el-menu--horizontal>.el-submenu .el-submenu__title,
-			.el-menu--horizontal>.el-menu-item {
-				border: 0px;
+			/* 导航栏字体 */
+			.el-menu--horizontal>.el-submenu .el-submenu__title {
 				height: 40px;
+				line-height: 40px;
 				color: rgb(225, 227, 232);
-				font: 14.5px/42px Arial, sans-serif;
 			}
 
-			.el-submenu:hover,
-			.el-menu--horizontal>.el-submenu .el-submenu__title:hover,
-			.el-menu--horizontal>.el-menu-item :hover {
-				background: rgb(0, 0, 0, 0);
-			}
-			
-			.el-menu--popup-bottom-start,
-			.el-menu--horizontal .el-menu .el-menu-item,
-			.el-menu-item{
-				background: rgb(15, 128, 255, 0.1);
-				right: 20px;
-			}
-
-			.el-menu.el-menu--horizontal {
-				border-bottom: 0px
-			}
-
+			/* 导航栏下浮图标 */
 			.el-submenu__title i {
 				color: #5e6064;
 				font-weight: bolder;
 			}
 
-			a {
-				text-decoration: none;
+			/* 导航栏hover效果 */
+			.el-menu--horizontal>.el-submenu .el-submenu__title:hover,
+			.el-menu--horizontal>.el-menu-item:hover {
+				background: rgb(0, 0, 0, 0);
 			}
+
+			/* 下拉框的透明效果 */
+			.el-menu--popup-bottom-start,
+			.el-menu--horizontal .el-menu .el-menu-item,
+			.el-menu-item {
+				background: rgb(0, 0, 0, 0.1);
+			}
+			
+			a{
+				color: rgb(225, 227, 232);
+			}
+			a:hover{
+				color: black;
+			}
+			
+			
 		</style>
 	</head>
 
@@ -97,7 +91,7 @@
 		<div id="app">
 			<el-menu class="el-menu-demo" mode="horizontal">
 				<el-submenu index="1">
-					<template slot="title">个人网站</template>
+					<template slot="title">我的工作台</template>
 					<el-menu-item index="1-1"><a href="https://www.cnblogs.com/whitewall/" target="_blank">博客园</a>
 					</el-menu-item>
 					<el-menu-item index="1-2"><a href="https://jenkins.whitewall.top/" target="_blank">Jenkins</a>
@@ -108,38 +102,31 @@
 				<el-submenu index="2">
 					<template slot="title">资料官网</template>
 					<el-menu-item index="2-1"><a href="https://element.eleme.cn/#/zh-CN/component/installation"
-							target="_blank">组件 | Element</a>
-					</el-menu-item>
+							target="_blank">组件 | Element</a></el-menu-item>
+					<el-menu-item index="2-2">选项2</el-menu-item>
+					<el-menu-item index="2-3">选项3</el-menu-item>
 				</el-submenu>
 				<el-submenu index="3">
-					<template slot="title">三大邮箱</template>
-					<el-menu-item index="3-1"><a href="https://mail.163.com/" target="_blank">163邮箱</a>
-					</el-menu-item>
-					<el-menu-item index="3-2"><a href="https://mail.qq.com/" target="_blank">QQ邮箱</a>
-					</el-menu-item>
+					<template slot="title">邮箱</template>
+					<el-menu-item index="3-1"><a href="https://mail.163.com/" target="_blank">163邮箱</a></el-menu-item>
+					<el-menu-item index="3-2"><a href="https://mail.qq.com/" target="_blank">QQ邮箱</a></el-menu-item>
 					<el-menu-item index="3-3"><a href="https://accounts.google.com/ServiceLogin?service=mail"
-							target="_blank">Gmail邮箱</a>
-					</el-menu-item>
+							target="_blank">Gmail邮箱</a></el-menu-item>
 				</el-submenu>
 			</el-menu>
 
+			<div class="search">
+				<el-input placeholder="请输入内容" v-model="search_data" class="input-with-select"
+					@keypress.native.enter="search" clearable>
+					<el-select v-model="select" slot="prepend" placeholder="请选择">
+						<el-option label="百度" value="百度"></el-option>
+						<el-option label="知乎" value="知乎"></el-option>
+						<el-option label="谷歌" value="谷歌"></el-option>
+					</el-select>
+					<el-button slot="append" icon="el-icon-search" @click="search"></el-button>
+				</el-input>
+			</div>
 
-
-			<el-container>
-				<el-header>
-					<div>
-						<el-input placeholder="请输入内容" v-model="search_data" class="input-with-select"
-							@keypress.native.enter="search" clearable>
-							<el-select v-model="select" slot="prepend" placeholder="请选择">
-								<el-option label="百度" value="百度"></el-option>
-								<el-option label="知乎" value="知乎"></el-option>
-								<el-option label="谷歌" value="谷歌"></el-option>
-							</el-select>
-							<el-button slot="append" icon="el-icon-search" @click="search"></el-button>
-						</el-input>
-					</div>
-				</el-header>
-			</el-container>
 		</div>
 		<!-- 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
 		<script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script>
