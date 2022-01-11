@@ -17,20 +17,14 @@
 				background-size: 100% 100%;
 				background-attachment: fixed;
 				background-repeat: no-repeat;
-				margin: 0px;
-			}
-			#app{
-/* 				vw  相对于视口的宽度，视口被均分为100单位的vw
-				vh  相对于视口的高度，视口被均分为100单位的vh */
-				height: calc(100vh);
-				width: calc(100vw);
+				margin-top: 0px;
 			}
 		</style>
 	</head>
 
 	<body>
 		<div id="app">
-			<el-menu class="el-menu-demo" mode="horizontal">
+			<el-menu class="el-menu-demo" mode="horizontal" v-for="(item,index) in book">
 				<el-submenu index="1">
 					<template slot="title">我的工作台</template>
 					<el-menu-item index="1-1"><a :href="book['我的工作台'][0]" target="_blank">博客园</a>
@@ -55,9 +49,6 @@
 			</el-menu>
 
 			<!-- 搜索框 -->
-			<div class="content">
-				
-			
 			<div class="search">
 				<el-input placeholder="请输入内容" v-model="search_data" class="input-with-select"
 					@keypress.native.enter="search" clearable>
@@ -68,8 +59,6 @@
 					</el-select>
 					<el-button slot="append" icon="el-icon-search" @click="search"></el-button>
 				</el-input>
-			</div>
-			
 			</div>
 
 		</div>

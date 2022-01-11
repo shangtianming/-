@@ -1,9 +1,15 @@
 /* 搜索组件样式 */
+.content{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 95%;
+}
+
 .search {
-	margin-left: 28%;
-	width: 45%;
-	margin-top: 20%;
-	background-color: rgba(0, 0, 0, 0);
+	margin-left: 1%;
+	width: 42%;
+	margin-bottom: 8%;
 }
 
 .el-input__inner {
