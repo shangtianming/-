@@ -11,19 +11,17 @@
 
 		<link rel="stylesheet" href="./main_search.css">
 		<link rel="stylesheet" href="./main_top_navigation.css">
-		<style> 
+		<style>
 			body {
 				background: url(./img/whitewall.jpeg);
 				background-size: 100% 100%;
 				background-attachment: fixed;
 				background-repeat: no-repeat;
 				margin: 0px;
-			}
-			#app{
-/* 				vw  相对于视口的宽度，视口被均分为100单位的vw
-				vh  相对于视口的高度，视口被均分为100单位的vh */
-				height: calc(100vh);
-				width: calc(100vw);
+				/* vw  相对于视口的宽度，视口被均分为100单位的vw
+				   vh  相对于视口的高度，视口被均分为100单位的vh */
+/* 				height: calc(100vh);
+				width: calc(100vw); */
 			}
 		</style>
 	</head>
@@ -55,9 +53,9 @@
 			</el-menu>
 
 			<!-- 搜索框 -->
-			<div class="content">
-				
-			
+
+
+
 			<div class="search">
 				<el-input placeholder="请输入内容" v-model="search_data" class="input-with-select"
 					@keypress.native.enter="search" clearable>
@@ -69,8 +67,8 @@
 					<el-button slot="append" icon="el-icon-search" @click="search"></el-button>
 				</el-input>
 			</div>
-			
-			</div>
+
+
 
 		</div>
 
