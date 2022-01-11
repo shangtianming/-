@@ -25,11 +25,15 @@
 	background: rgb(0, 0, 0, 0.1);
 }
 
-/* 下拉框的透明效果 */
-.el-menu--popup-bottom-start,
-.el-menu--horizontal .el-menu .el-menu-item,
+/* 下拉框的透明效果，不知道为啥下面三个一起设置就出现了重影效果，且0.2的效果跟上面0.1的效果差不多 */
+.el-menu--popup-bottom-start{
+	background: rgb(0, 0, 0, 0.2);
+}
+.el-menu--horizontal .el-menu .el-menu-item {
+	background: rgb(0, 0, 0, 0);
+}
 .el-menu-item {
-	background: rgb(0, 0, 0, 0.1);
+	background: rgb(0, 0, 0, 0);
 }
 
 a,
