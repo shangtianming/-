@@ -1,0 +1,44 @@
+/* 导航栏样式 */
+#app>.el-menu {
+	background-color: rgb(1, 1, 1, 0.1);
+	left: 10%;
+	width: 80%;
+	height: 40px;
+}
+
+/* 导航栏字体 */
+.el-menu--horizontal>.el-submenu .el-submenu__title {
+	height: 40px;
+	line-height: 40px;
+	color: rgb(225, 227, 232);
+}
+
+/* 导航栏下浮图标 */
+.el-submenu__title i {
+	color: #5e6064;
+	font-weight: bolder;
+}
+
+/* 导航栏hover效果 */
+.el-menu--horizontal>.el-submenu .el-submenu__title:hover,
+.el-menu--horizontal>.el-menu-item:hover {
+	background: rgb(0, 0, 0, 0.1);
+}
+
+/* 下拉框的透明效果 */
+.el-menu--popup-bottom-start,
+.el-menu--horizontal .el-menu .el-menu-item,
+.el-menu-item {
+	background: rgb(0, 0, 0, 0.1);
+}
+
+a,
+.el-menu--horizontal .el-menu .el-menu-item,
+.el-menu--horizontal .el-menu .el-submenu__title {
+	color: rgb(225, 227, 232);
+	padding-left: 10px;
+}
+
+a:hover {
+	color: black;
+}
