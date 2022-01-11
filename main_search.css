@@ -1,0 +1,23 @@
+/* 搜索组件样式 */
+.search {
+	margin-left: 28%;
+	width: 45%;
+	margin-top: 20%;
+	background-color: rgba(0, 0, 0, 0);
+}
+
+.el-input__inner {
+	background-color: rgb(1, 1, 1, 0.4);
+	border: 0px;
+	color: rgb(250, 250, 248);
+}
+
+/* 选择下拉框大小 */
+.el-select .el-input {
+	width: 80px;
+}
+
+/* 搜索图标大小 */
+.input-with-select>.el-input-group__append .el-button--default {
+	width: 76px;
+}

@@ -8,6 +8,9 @@
 		<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
 		<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
 		<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+		
+		<link rel="stylesheet" href="./main_search.css">
+		<link rel="stylesheet" href="./main_top_navigation.css">
 		<style>
 			body {
 				background: url(./img/whitewall.jpeg);
@@ -15,76 +18,6 @@
 				background-attachment: fixed;
 				background-repeat: no-repeat;
 				margin-top: 0px;
-			}
-
-			/* 搜索组件样式 */
-			.search {
-				margin-left: 28%;
-				width: 45%;
-				margin-top: 20%;
-				background-color: rgba(0, 0, 0, 0);
-			}
-
-			.el-input__inner {
-				background-color: rgb(1, 1, 1, 0.4);
-				border: 0px;
-				color: rgb(250, 250, 248);
-			}
-
-			/* 选择下拉框大小 */
-			.el-select .el-input {
-				width: 80px;
-			}
-
-			/* 搜索图标大小 */
-			.input-with-select>.el-input-group__append .el-button--default {
-				width: 76px;
-			}
-
-			/* -------------------------------------------------------------------------------- */
-			/* 导航栏样式 */
-			#app>.el-menu {
-				background-color: rgb(1, 1, 1, 0.1);
-				left: 10%;
-				width: 80%;
-				height: 40px;
-			}
-
-			/* 导航栏字体 */
-			.el-menu--horizontal>.el-submenu .el-submenu__title {
-				height: 40px;
-				line-height: 40px;
-				color: rgb(225, 227, 232);
-			}
-
-			/* 导航栏下浮图标 */
-			.el-submenu__title i {
-				color: #5e6064;
-				font-weight: bolder;
-			}
-
-			/* 导航栏hover效果 */
-			.el-menu--horizontal>.el-submenu .el-submenu__title:hover,
-			.el-menu--horizontal>.el-menu-item:hover {
-				background: rgb(0, 0, 0, 0.1);
-			}
-
-			/* 下拉框的透明效果 */
-			.el-menu--popup-bottom-start,
-			.el-menu--horizontal .el-menu .el-menu-item,
-			.el-menu-item {
-				background: rgb(0, 0, 0, 0.1);
-			}
-
-			a,
-			.el-menu--horizontal .el-menu .el-menu-item,
-			.el-menu--horizontal .el-menu .el-submenu__title {
-				color: rgb(225, 227, 232);
-				padding-left: 10px;
-			}
-
-			a:hover {
-				color: black;
 			}
 		</style>
 	</head>
