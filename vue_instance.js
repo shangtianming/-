@@ -11,7 +11,7 @@ new Vue({
 			},
 			book: {
 				"我的工作台": {
-					"博客园": "https://www.cnblogs.com/whitewall/",
+					"博客园": "http://www.cnblogs.com/whitewall/",
 					"Jenkins": "https://jenkins.whitewall.top/",
 					"测试": "https://demo.whitewall.top/",
 				},
