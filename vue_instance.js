@@ -23,6 +23,9 @@ new Vue({
 					"163邮箱": "https://mail.163.com/",
 					"QQ邮箱": "https://mail.qq.com/",
 					"Gmail邮箱": "https://accounts.google.com/ServiceLogin?service=mail"
+				},
+				"墙外": {
+					"GitHub": "https://github.com/"
 				}
 			}
 		}
