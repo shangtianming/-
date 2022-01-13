@@ -25,7 +25,8 @@ new Vue({
 					"菜鸟教程 | JavaScript": "https://www.runoob.com/js/js-tutorial.html"
 				},
 				"工具": {
-					"百度翻译": "https://fanyi.baidu.com/"
+					"百度翻译": "https://fanyi.baidu.com/",
+					"PyPI · The Python Package Index":"https://pypi.org/"
 				},
 				"邮箱": {
 					"163邮箱": "https://mail.163.com/",
