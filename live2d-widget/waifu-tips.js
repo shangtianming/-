@@ -209,13 +209,12 @@ function loadWidget(config) {
 		modelList = await response.json();
 	}
 
-	async function loadModel(modelId, modelTexturesId, message, target_shadow) {
+	async function loadModel(modelId, modelTexturesId, message, target) {
 		localStorage.setItem("modelId", modelId);
 		localStorage.setItem("modelTexturesId", modelTexturesId);
 		showMessage(message, 4000, 10);
 		if (useCDN) {
 			if (!modelList) await loadModelList();
-			const target = target_shadow
 			if(target == undefined){
 				target = randomSelection(modelList.models[modelId]);
 			}
