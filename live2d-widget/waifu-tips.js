@@ -161,14 +161,13 @@ function loadWidget(config) {
 		let modelId = localStorage.getItem("modelId"),
 			modelTexturesId = localStorage.getItem("modelTexturesId"),
 			target_shadow,
-			message_shadow;
 		if (modelId === null) {
 			// 首次访问加载 指定模型 的 指定材质
 			modelId = 5; // 模型 ID
 			modelTexturesId = 0; // 材质 ID
 			target_shadow = "HyperdimensionNeptunia/vert_swimwear";
 		}
-		loadModel(modelId, modelTexturesId, message_shadow, target_shadow);
+		loadModel(modelId, modelTexturesId, undefined, target_shadow);
 		fetch(waifuPath)
 			.then(response => response.json())
 			.then(result => {
