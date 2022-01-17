@@ -61,8 +61,8 @@
 					</el-select>
 					<el-button slot="append" icon="el-icon-search" @click="search"></el-button>
 				</el-input>
-				<div v-show="is_show" class="history_search_data">
-					<p v-for="item in is_show_data" @click="set_search_data(item)" class="show_history">{{item}}
+				<div v-show="is_show" class="history_search_data" >
+					<p v-for="item in is_show_data" @mousedown="set_search_data(item)" class="show_history">{{item}}
 					</p>
 				</div>
 			</div>

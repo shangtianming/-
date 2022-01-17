@@ -4,6 +4,7 @@ new Vue({
 		return {
 			search_data: "",
 			history_search_data: [],
+			lock:1,
 			is_show_data: [],
 			is_show: false,
 			select: "百度",
@@ -57,16 +58,15 @@ new Vue({
 			while (new Date().getTime() < startTime + milliSeconds) {}
 		},
 		search_focus() {
+			console.log("触发focus事件")
 			if (this.history_search_data.length > 0) {
 				this.is_show_data = this.history_search_data
 				this.is_show = true
 			}
 		},
 		search_blur() {
-			this.$nextTick(() => {
-				console.log(444)
-				this.is_show = false
-			})
+			console.log("触发blur事件")
+			this.is_show = false
 		},
 		search_input() {
 			console.log("触发oninput事件")
@@ -83,9 +83,10 @@ new Vue({
 			}
 		},
 		set_search_data(item) {
-			console.log("触发set_search_data事件");
-			this.is_show = false
+			console.log("触发set_search_data事件")
 			this.search_data = item
+			this.is_show = false
+			console.log("结束",this.search_data,"====")
 		}
 	},
 	created() {
@@ -94,24 +95,5 @@ new Vue({
 		if (history_search_data != null) {
 			this.history_search_data = JSON.parse(history_search_data)
 		}
-	},
-	// watch: {
-	// 	search_data: function(val, oldVal) {
-	// 		console.log('监听的数据：', val, oldVal)
-	// 		if (val.length == 0 || this.history_search_data == null || this.history_search_data.length ==
-	// 			0) {
-	// 			this.is_show = false
-	// 		} else {
-	// 			let is_show_data=[]
-	// 			this.history_search_data.forEach((item, index) => {
-	// 				if (item.indexOf(val) >= 0) {
-	// 					is_show_data.push(item)
-	// 				}
-	// 			})
-	// 			this.is_show_data = is_show_data
-	// 			console.log('采集的数据：', this.is_show_data)
-	// 		}
-	// 	}
-	// }
-
+	}
 })
