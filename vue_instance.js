@@ -4,7 +4,6 @@ new Vue({
 		return {
 			search_data: "",
 			history_search_data: [],
-			lock:1,
 			is_show_data: [],
 			is_show: false,
 			select: "百度",
@@ -53,10 +52,6 @@ new Vue({
 			this.history_search_data.push(this.search_data)
 			window.localStorage.setItem("history_search_data", JSON.stringify(this.history_search_data))
 		},
-		sleep(milliSeconds) {
-			var startTime = new Date().getTime();
-			while (new Date().getTime() < startTime + milliSeconds) {}
-		},
 		search_focus() {
 			console.log("触发focus事件")
 			if (this.history_search_data.length > 0) {
@@ -86,7 +81,7 @@ new Vue({
 			console.log("触发set_search_data事件")
 			this.search_data = item
 			this.is_show = false
-			console.log("结束",this.search_data,"====")
+			console.log("结束", this.search_data, "====")
 		}
 	},
 	created() {
