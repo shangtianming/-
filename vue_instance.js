@@ -3,6 +3,9 @@ new Vue({
 	data() {
 		return {
 			search_data: "",
+			history_search_data: [],
+			is_show_data: [],
+			is_show: false,
 			select: "百度",
 			select_map: {
 				"百度": "http://www.baidu.com/s?wd=",
@@ -26,7 +29,7 @@ new Vue({
 				},
 				"工具": {
 					"百度翻译": "https://fanyi.baidu.com/",
-					"PyPI · The Python Package Index":"https://pypi.org/"
+					"PyPI · The Python Package Index": "https://pypi.org/"
 				},
 				"邮箱": {
 					"163邮箱": "https://mail.163.com/",
@@ -37,7 +40,7 @@ new Vue({
 					"GitHub": "https://github.com/",
 					"Wikipedia": "https://zh.wikipedia.org/",
 					"YouTube": "https://www.youtube.com",
-					"FaceBook":"https://zh-cn.facebook.com/",
+					"FaceBook": "https://zh-cn.facebook.com/",
 					"PornHub": "https://cn.pornhub.com/",
 				}
 			}
@@ -46,7 +49,69 @@ new Vue({
 	methods: {
 		search() {
 			window.open(this.select_map[this.select] + this.search_data)
-			// window.localStorage.setItem(new Date().getTime(), this.search_data)
+			this.history_search_data.push(this.search_data)
+			window.localStorage.setItem("history_search_data", JSON.stringify(this.history_search_data))
+		},
+		sleep(milliSeconds) {
+			var startTime = new Date().getTime();
+			while (new Date().getTime() < startTime + milliSeconds) {}
+		},
+		search_focus() {
+			if (this.history_search_data.length > 0) {
+				this.is_show_data = this.history_search_data
+				this.is_show = true
+			}
+		},
+		search_blur() {
+			this.$nextTick(() => {
+				console.log(444)
+				this.is_show = false
+			})
+		},
+		search_input() {
+			console.log("触发oninput事件")
+			let is_show_data = []
+			var target = this.search_data
+			this.history_search_data.forEach((item, index) => {
+				if (item.indexOf(target) >= 0) {
+					is_show_data.push(item)
+				}
+			})
+			this.is_show_data = is_show_data
+			if (this.is_show_data.length > 0 || this.history_search_data.length > 0) {
+				this.is_show = true
+			}
+		},
+		set_search_data(item) {
+			console.log("触发set_search_data事件");
+			this.is_show = false
+			this.search_data = item
 		}
-	}
+	},
+	created() {
+		let history_search_data = window.localStorage.getItem("history_search_data")
+		console.log('历史搜索数据：', history_search_data)
+		if (history_search_data != null) {
+			this.history_search_data = JSON.parse(history_search_data)
+		}
+	},
+	// watch: {
+	// 	search_data: function(val, oldVal) {
+	// 		console.log('监听的数据：', val, oldVal)
+	// 		if (val.length == 0 || this.history_search_data == null || this.history_search_data.length ==
+	// 			0) {
+	// 			this.is_show = false
+	// 		} else {
+	// 			let is_show_data=[]
+	// 			this.history_search_data.forEach((item, index) => {
+	// 				if (item.indexOf(val) >= 0) {
+	// 					is_show_data.push(item)
+	// 				}
+	// 			})
+	// 			this.is_show_data = is_show_data
+	// 			console.log('采集的数据：', this.is_show_data)
+	// 		}
+	// 	}
+	// }
+
 })

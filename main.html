@@ -50,6 +50,9 @@
 			<!-- 搜索框 -->
 			<div class="search">
 				<el-input placeholder="请输入内容" v-model="search_data" class="input-with-select"
+					v-on:input="search_input"
+					@focus="search_focus"
+					@blur="search_blur"
 					@keypress.native.enter="search" clearable>
 					<el-select v-model="select" slot="prepend" placeholder="请选择">
 						<el-option label="百度" value="百度"></el-option>
@@ -58,6 +61,10 @@
 					</el-select>
 					<el-button slot="append" icon="el-icon-search" @click="search"></el-button>
 				</el-input>
+				<div v-show="is_show" class="history_search_data">
+					<p v-for="item in is_show_data" @click="set_search_data(item)" class="show_history">{{item}}
+					</p>
+				</div>
 			</div>
 
 
@@ -66,7 +73,7 @@
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
 		<script src="live2d-widget/autoload.js"></script>
 		<!-- <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script> -->
-		
+
 
 		<script type="text/javascript" src="vue_instance.js"></script>
 
