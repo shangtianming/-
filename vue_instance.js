@@ -74,7 +74,7 @@ new Vue({
 			body.style.backgroundSize = "100% 100%"
 			body.style.backgroundAttachment = "fixed"
 			body.style.backgroundRepeat = "no-repeat"
-			this.bg_index = this.bg_index % 4
+			this.bg_index = this.bg_index % 6
 		},
 		search() {
 			window.open(this.select_map[this.select] + this.search_data)
