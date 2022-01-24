@@ -19,7 +19,7 @@ new Vue({
 	el: "#app",
 	data() {
 		return {
-			bg_index: 0,
+			bg_index: 2,
 			search_data: "",
 			history_search_data: [],
 			is_show_data: [],
