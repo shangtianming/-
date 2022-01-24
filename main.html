@@ -5,6 +5,7 @@
 		<meta charset="utf-8">
 		<title>WhiteWall</title>
 		<link rel="icon" href="./img/favicon.ico">
+
 		<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
 		<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
 		<script src="https://unpkg.com/element-ui/lib/index.js"></script>
@@ -17,20 +18,21 @@
 				padding: 0px;
 			}
 
-			body {
-				background: url(./img/whitewall.jpeg);
+			/* 	body {
+				background: url(./img/whitewall_01.jpeg);
 				background-size: 100% 100%;
 				background-attachment: fixed;
 				background-repeat: no-repeat;
-				/* vw  相对于视口的宽度，视口被均分为100单位的vw
-				   vh  相对于视口的高度，视口被均分为100单位的vh */
-				/* height: calc(100vh);
-				width: calc(100vw); */
-			}
+			} */
+
+			/*  height: calc(100vh);
+			width: calc(100vw);
+			vw  相对于视口的宽度，视口被均分为100单位的vw
+			vh  相对于视口的高度，视口被均分为100单位的vh */
 		</style>
 	</head>
-
-	<body>
+	<!-- ,background-size: '100% 100%',background-attachment: 'fixed',ackground-repeat: 'no-repeat' -->
+	<body id='body'>
 		<div id="app">
 			<el-menu class="el-menu-demo" mode="horizontal">
 				<el-submenu :index="key" v-for="(value,key) in book">
@@ -42,18 +44,15 @@
 
 				<el-submenu index="3" class="set_up">
 					<template slot="title">设置</template>
-					<el-menu-item index="3-1">切换背景</el-menu-item>
+					<el-menu-item index="3-1" @click="bg_config()">切换背景</el-menu-item>
 					<el-menu-item index="3-2">修改书签</a></el-menu-item>
 				</el-submenu>
 			</el-menu>
 
 			<!-- 搜索框 -->
 			<div class="search">
-				<el-input placeholder="请输入内容" v-model="search_data" class="input-with-select"
-					v-on:input="search_input"
-					@focus="search_focus"
-					@blur="search_blur"
-					@keypress.native.enter="search" clearable>
+				<el-input placeholder="请输入内容" v-model="search_data" class="input-with-select" v-on:input="search_input"
+					@focus="search_focus" @blur="search_blur" @keypress.native.enter="search" clearable>
 					<el-select v-model="select" slot="prepend" placeholder="请选择">
 						<el-option label="百度" value="百度"></el-option>
 						<el-option label="知乎" value="知乎"></el-option>
@@ -61,7 +60,7 @@
 					</el-select>
 					<el-button slot="append" icon="el-icon-search" @click="search"></el-button>
 				</el-input>
-				<div v-show="is_show" class="history_search_data" >
+				<div v-show="is_show" class="history_search_data">
 					<p v-for="item in is_show_data" @mousedown="set_search_data(item)" class="show_history">{{item}}
 					</p>
 				</div>
