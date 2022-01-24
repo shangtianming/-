@@ -66,8 +66,8 @@ new Vue({
 	},
 	methods: {
 		bg_config() {
-			var imgs = ["img/01.jpeg", "img/02.png", "img/03.jpg",
-				"img/04.jpg", "img/05.png", "img/06.png"
+			var imgs = ["img/01.jpeg", "img/02.png",
+				"img/04.jpg"
 			]
 			var body = document.getElementById("body")
 			body.style.background = "url(" + imgs[this.bg_index++] + ")";
