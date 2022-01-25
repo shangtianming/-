@@ -22,6 +22,7 @@
 
 	<body id='body'>
 		<div id="app">
+			<!-- 书签导航栏 -->
 			<el-menu class="el-menu-demo" mode="horizontal">
 				<el-submenu :index="key" v-for="(value,key,index) in book" :key="index">
 					<template slot="title">{{key}}</template>
