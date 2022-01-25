@@ -3,7 +3,7 @@
  * https://github.com/stevenjoezhang/live2d-widget
  */
 
-function loadWidget(config) {
+function loadWidget(config,mytarget) {
 	let { waifuPath, apiPath, cdnPath } = config;
 	let useCDN = false, modelList;
 	if (typeof cdnPath === "string") {
@@ -215,17 +215,24 @@ function loadWidget(config) {
 		showMessage(message, 4000, 10);
 		if (useCDN) {
 			if (!modelList) await loadModelList();
-			const test = localStorage.getItem("set_live2d");
-			if(test != undefined){
-				console.log("来自点击");
-				target = test; 
-				localStorage.removeItem("set_live2d");
-			}
-			if(target == undefined){
+			// const test = localStorage.getItem("set_live2d");
+			// if(test != undefined){
+			// 	console.log("来自点击");
+			// 	target = test; 
+			// 	localStorage.removeItem("set_live2d");
+			// }
+			if(mytarget != undefined){
+				// console.log('=====1',mytarget);
+				loadlive2d("live2d", `${cdnPath}model/${mytarget}/index.json`);
+				mytarget= undefined
+			}else if(target == undefined){
 				target = randomSelection(modelList.models[modelId]);
+				// console.log('=====2',target);
+				loadlive2d("live2d", `${cdnPath}model/${target}/index.json`);
+			}else if(target != undefined) {
+				// console.log('=====3',target);
+				loadlive2d("live2d", `${cdnPath}model/${target}/index.json`);
 			}
-			loadlive2d("live2d", `${cdnPath}model/${target}/index.json`);
-			
 		} else {
 			loadlive2d("live2d", `${apiPath}get/?id=${modelId}-${modelTexturesId}`);
 			console.log(`Live2D 模型 ${modelId}-${modelTexturesId} 加载完成`);

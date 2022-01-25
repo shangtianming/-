@@ -65,12 +65,17 @@ new Vue({
 			// this.bg_index = this.bg_index % imgs.length
 		},
 		set_live2d() {
-			window.localStorage.setItem("set_live2d","HyperdimensionNeptunia/vert_swimwear")
+			// window.localStorage.setItem("set_live2d","HyperdimensionNeptunia/vert_swimwear")
 			var config = {
 				waifuPath: 'live2d-widget/waifu-tips.json',
 				cdnPath: 'https://cdn.jsdelivr.net/gh/fghrsh/live2d_api/'
 			}
-			window.loadWidget(config)
+			var mywife = ["HyperdimensionNeptunia/vert_swimwear", "HyperdimensionNeptunia/neptune_santa",
+				"HyperdimensionNeptunia/blanc_normal",
+				"HyperdimensionNeptunia/nepswim", "HyperdimensionNeptunia/blanc_swimwear",
+				"ShizukuTalk/shizuku-48"
+			]
+			window.loadWidget(config, "HyperdimensionNeptunia/vert_swimwear")
 		},
 		search() {
 			window.open(this.select_map[this.select] + this.search_data)
@@ -116,7 +121,6 @@ new Vue({
 		this.img_config()
 
 		let history_search_data = window.localStorage.getItem("history_search_data")
-		console.log('历史搜索数据：', history_search_data)
 		if (history_search_data != null) {
 			this.history_search_data = JSON.parse(history_search_data)
 		}
