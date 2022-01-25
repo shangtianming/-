@@ -4,7 +4,6 @@
  */
 
 function loadWidget(config) {
-	console.log('==config===',config);
 	let { waifuPath, apiPath, cdnPath } = config;
 	let useCDN = false, modelList;
 	if (typeof cdnPath === "string") {
@@ -158,7 +157,7 @@ function loadWidget(config) {
 		}, timeout);
 	}
 
-	function initModel() {
+	(function initModel() {
 		let modelId = localStorage.getItem("modelId"),
 			modelTexturesId = localStorage.getItem("modelTexturesId"),
 			target_shadow,
@@ -203,8 +202,7 @@ function loadWidget(config) {
 					}
 				});
 			});
-	}
-	initModel();
+	})();
 
 	async function loadModelList() {
 		const response = await fetch(`${cdnPath}model_list.json`);
@@ -217,10 +215,17 @@ function loadWidget(config) {
 		showMessage(message, 4000, 10);
 		if (useCDN) {
 			if (!modelList) await loadModelList();
+			const test = localStorage.getItem("set_live2d");
+			if(test != undefined){
+				console.log("来自点击");
+				target = test;
+				localStorage.removeItem("set_live2d");
+			}
 			if(target == undefined){
 				target = randomSelection(modelList.models[modelId]);
 			}
 			loadlive2d("live2d", `${cdnPath}model/${target}/index.json`);
+			
 		} else {
 			loadlive2d("live2d", `${apiPath}get/?id=${modelId}-${modelTexturesId}`);
 			console.log(`Live2D 模型 ${modelId}-${modelTexturesId} 加载完成`);

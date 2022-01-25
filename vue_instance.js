@@ -64,8 +64,8 @@ new Vue({
 			body.style.backgroundRepeat = "no-repeat"
 			// this.bg_index = this.bg_index % imgs.length
 		},
-		reset_live2d() {
-			window.localStorage.removeItem("modelId")
+		set_live2d() {
+			window.localStorage.setItem("set_live2d","HyperdimensionNeptunia/vert_swimwear")
 			var config = {
 				waifuPath: 'live2d-widget/waifu-tips.json',
 				cdnPath: 'https://cdn.jsdelivr.net/gh/fghrsh/live2d_api/'
