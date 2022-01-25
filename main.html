@@ -35,16 +35,16 @@
 	<body id='body'>
 		<div id="app">
 			<el-menu class="el-menu-demo" mode="horizontal">
-				<el-submenu :index="key" v-for="(value,key) in book">
+				<el-submenu :index="key" v-for="(value,key,index) in book" :key="index">
 					<template slot="title">{{key}}</template>
-					<el-menu-item :index="link" v-for="(link,name) in value">
+					<el-menu-item :index="link" v-for="(link,name,index) in value" :key="index">
 						<a :href="link" target="_blank">{{name}}</a>
 					</el-menu-item>
 				</el-submenu>
 
 				<el-submenu index="3" class="set_up">
 					<template slot="title">设置</template>
-					<el-menu-item index="3-1" @click="bg_config()">切换背景</el-menu-item>
+					<el-menu-item index="3-1" @click="img_config()">随机背景</el-menu-item>
 					<el-menu-item index="3-2">修改书签</a></el-menu-item>
 				</el-submenu>
 			</el-menu>

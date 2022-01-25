@@ -19,7 +19,8 @@ new Vue({
 	el: "#app",
 	data() {
 		return {
-			bg_index: 2,
+			img_index: 2,
+			imgs : ["img/01.jpeg", "img/02.png","img/04.jpg"],
 			search_data: "",
 			history_search_data: [],
 			is_show_data: [],
@@ -65,16 +66,14 @@ new Vue({
 		}
 	},
 	methods: {
-		bg_config() {
-			var imgs = ["img/01.jpeg", "img/02.png",
-				"img/04.jpg"
-			]
+		img_config() {
 			var body = document.getElementById("body")
-			body.style.background = "url(" + imgs[this.bg_index++] + ")";
+			// body.style.background = "url(" + imgs[this.bg_index++] + ")"
+			body.style.background = "url(" + this.imgs[Math.floor(Math.random() * this.imgs.length)] + ")"
 			body.style.backgroundSize = "100% 100%"
 			body.style.backgroundAttachment = "fixed"
 			body.style.backgroundRepeat = "no-repeat"
-			this.bg_index = this.bg_index % imgs.length
+			// this.bg_index = this.bg_index % imgs.length
 		},
 		search() {
 			window.open(this.select_map[this.select] + this.search_data)
@@ -114,11 +113,10 @@ new Vue({
 			console.log("触发set_search_data事件")
 			this.search_data = item
 			this.is_show = false
-			console.log("结束", this.search_data, "====")
 		}
 	},
 	created() {
-		this.bg_config()
+		this.img_config()
 
 		let history_search_data = window.localStorage.getItem("history_search_data")
 		console.log('历史搜索数据：', history_search_data)
