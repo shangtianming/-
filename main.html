@@ -17,21 +17,9 @@
 				margin: 0px;
 				padding: 0px;
 			}
-
-			/* 	body {
-				background: url(./img/whitewall_01.jpeg);
-				background-size: 100% 100%;
-				background-attachment: fixed;
-				background-repeat: no-repeat;
-			} */
-
-			/*  height: calc(100vh);
-			width: calc(100vw);
-			vw  相对于视口的宽度，视口被均分为100单位的vw
-			vh  相对于视口的高度，视口被均分为100单位的vh */
 		</style>
 	</head>
-	<!-- ,background-size: '100% 100%',background-attachment: 'fixed',ackground-repeat: 'no-repeat' -->
+
 	<body id='body'>
 		<div id="app">
 			<el-menu class="el-menu-demo" mode="horizontal">
@@ -54,25 +42,23 @@
 				<el-input placeholder="请输入内容" v-model="search_data" class="input-with-select" v-on:input="search_input"
 					@focus="search_focus" @blur="search_blur" @keypress.native.enter="search" clearable>
 					<el-select v-model="select" slot="prepend" placeholder="请选择">
-						<el-option label="百度" value="百度"></el-option>
-						<el-option label="知乎" value="知乎"></el-option>
-						<el-option label="谷歌" value="谷歌"></el-option>
+						<el-option :label="key" :value="key"  v-for="(value,key,index) in select_map" :key="index" ></el-option>
 					</el-select>
 					<el-button slot="append" icon="el-icon-search" @click="search"></el-button>
 				</el-input>
+				
 				<div v-show="is_show" class="history_search_data">
 					<p v-for="item in is_show_data" @mousedown="set_search_data(item)" class="show_history">{{item}}
 					</p>
 				</div>
 			</div>
 
-
 		</div>
+		
 		<!-- 看板娘 -->
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
 		<script src="live2d-widget/autoload.js"></script>
 		<!-- <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script> -->
-
 
 		<script type="text/javascript" src="vue_instance.js"></script>
 

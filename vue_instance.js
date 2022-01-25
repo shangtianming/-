@@ -1,36 +1,23 @@
-// window.onload = function() {
-//  	var imgs = ["img/whitewall_01.jpeg", "img/whitewall_02.jpeg"]
-//  	var i = 0;
-//  	var body = document.getElementById("body"); //获取DIV对象
-//  	body.style.background = "url(img/whitewall_01.jpeg)"; //设置图片的初始图片为该路径的图片
-// 	body.style.backgroundSize = "100% 100%";
-// 	body.style.backgroundAttachment = "fixed";
-// 	body.style.backgroundRepeat = "no-repeat";
-// function time() {
-// 	i++;
-// 	i = i % 2; 
-// 	body.style.background = "url(" + imgs[i] + ")";
-// }
-// setInterval(time, 10000); 
-//setInterval()函数，按照指定的周期（按毫秒计）来调用函数或表达式
-// }
-
 new Vue({
 	el: "#app",
 	data() {
 		return {
-			img_index: 2,
-			imgs : ["img/01.jpeg", "img/02.png","img/04.jpg"],
+			// 背景
+			img_index: 0,
+			imgs: ["img/01.jpeg", "img/02.png", "img/04.jpg"],
+			// 搜索配置
 			search_data: "",
-			history_search_data: [],
-			is_show_data: [],
-			is_show: false,
 			select: "百度",
 			select_map: {
 				"百度": "http://www.baidu.com/s?wd=",
+				"知乎": "https://www.zhihu.com/search?type=content&q=",
 				"谷歌": "http://www.google.com/search?q=",
-				"知乎": "https://www.zhihu.com/search?type=content&q="
 			},
+			// 历史搜索数据以及展示
+			history_search_data: [],
+			is_show_data: [],
+			is_show: false,
+			// 书签配置
 			book: {
 				"我的工作台": {
 					"博客园": "https://www.cnblogs.com/whitewall/",
@@ -78,7 +65,7 @@ new Vue({
 		search() {
 			window.open(this.select_map[this.select] + this.search_data)
 
-			if (this.history_search_data.indexOf(this.search_data) = -1) {
+			if (this.history_search_data.indexOf(this.search_data) == -1) {
 				// 如果没有找到元素，则添加到本地缓存
 				this.history_search_data.unshift(this.search_data)
 				window.localStorage.setItem("history_search_data", JSON.stringify(this.history_search_data))
@@ -125,3 +112,21 @@ new Vue({
 		}
 	}
 })
+
+
+// window.onload = function() {
+//  	var imgs = ["img/whitewall_01.jpeg", "img/whitewall_02.jpeg"]
+//  	var i = 0;
+//  	var body = document.getElementById("body"); //获取DIV对象
+//  	body.style.background = "url(img/whitewall_01.jpeg)"; //设置图片的初始图片为该路径的图片
+// 	body.style.backgroundSize = "100% 100%";
+// 	body.style.backgroundAttachment = "fixed";
+// 	body.style.backgroundRepeat = "no-repeat";
+// function time() {
+// 	i++;
+// 	i = i % 2; 
+// 	body.style.background = "url(" + imgs[i] + ")";
+// }
+// setInterval(time, 10000); 
+//setInterval()函数，按照指定的周期（按毫秒计）来调用函数或表达式
+// }
