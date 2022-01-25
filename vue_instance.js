@@ -5,7 +5,8 @@ new Vue({
 			// 背景
 			img_index: 0,
 			imgs: ["img/01.jpeg", "img/02.png", "img/04.jpg",
-				   "img/08.jpeg"],
+				"img/08.jpeg"
+			],
 			// 搜索配置
 			search_data: "",
 			select: "百度",
@@ -62,6 +63,14 @@ new Vue({
 			body.style.backgroundAttachment = "fixed"
 			body.style.backgroundRepeat = "no-repeat"
 			// this.bg_index = this.bg_index % imgs.length
+		},
+		reset_live2d() {
+			window.localStorage.removeItem("modelId")
+			var config = {
+				waifuPath: 'live2d-widget/waifu-tips.json',
+				cdnPath: 'https://cdn.jsdelivr.net/gh/fghrsh/live2d_api/'
+			}
+			window.loadWidget(config)
 		},
 		search() {
 			window.open(this.select_map[this.select] + this.search_data)

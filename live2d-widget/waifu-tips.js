@@ -4,6 +4,7 @@
  */
 
 function loadWidget(config) {
+	console.log('==config===',config);
 	let { waifuPath, apiPath, cdnPath } = config;
 	let useCDN = false, modelList;
 	if (typeof cdnPath === "string") {
@@ -157,7 +158,7 @@ function loadWidget(config) {
 		}, timeout);
 	}
 
-	(function initModel() {
+	function initModel() {
 		let modelId = localStorage.getItem("modelId"),
 			modelTexturesId = localStorage.getItem("modelTexturesId"),
 			target_shadow,
@@ -202,7 +203,8 @@ function loadWidget(config) {
 					}
 				});
 			});
-	})();
+	}
+	initModel();
 
 	async function loadModelList() {
 		const response = await fetch(`${cdnPath}model_list.json`);
