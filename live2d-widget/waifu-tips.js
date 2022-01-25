@@ -218,7 +218,7 @@ function loadWidget(config) {
 			const test = localStorage.getItem("set_live2d");
 			if(test != undefined){
 				console.log("来自点击");
-				target = test;
+				target = test; 
 				localStorage.removeItem("set_live2d");
 			}
 			if(target == undefined){
