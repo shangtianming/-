@@ -12,6 +12,7 @@ vh  相对于视口的高度，视口被均分为100单位的vh */
 }
 
 /* 导航栏字体 */
+.friend_link,
 .el-menu--horizontal>.el-submenu .el-submenu__title {
 	height: 40px;
 	line-height: 40px;
@@ -25,12 +26,14 @@ vh  相对于视口的高度，视口被均分为100单位的vh */
 }
 
 /* 导航栏hover效果 */
+.friend_link:hover,
 .el-menu--horizontal>.el-submenu .el-submenu__title:hover,
 .el-menu--horizontal>.el-menu-item:hover {
 	background: rgb(0, 0, 0, 0.1);
 }
 
 /* 下拉框的透明效果，不知道为啥下面三个一起设置就出现了重影效果，且0.2的效果跟上面0.1的效果差不多 */
+.friend_link,
 .el-menu--popup-bottom-start {
 	background: rgb(0, 0, 0, 0.2);
 	overflow: scroll;
@@ -38,21 +41,25 @@ vh  相对于视口的高度，视口被均分为100单位的vh */
 	max-height: calc(90vh);
 }
 
+.friend_link,
 .el-menu--horizontal .el-menu .el-menu-item {
 	background: rgb(0, 0, 0, 0);
 }
 
+.friend_link,
 .el-menu-item {
 	background: rgb(0, 0, 0, 0);
 }
 
 a,
+.friend_link,
 .el-menu--horizontal .el-menu .el-menu-item,
 .el-menu--horizontal .el-menu .el-submenu__title {
 	color: rgb(225, 227, 232);
 	padding-left: 10px;
 }
 
+.friend_link:hover,
 a:hover {
 	color: black;
 }
