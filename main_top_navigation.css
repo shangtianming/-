@@ -35,7 +35,7 @@ vh  相对于视口的高度，视口被均分为100单位的vh */
 	background: rgb(0, 0, 0, 0.2);
 	overflow: scroll;
 	/* height: auto; */
-	height: calc(90vh);
+	max-height: calc(90vh);
 }
 
 .el-menu--horizontal .el-menu .el-menu-item {
