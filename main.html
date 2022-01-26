@@ -6,10 +6,16 @@
 		<title>WhiteWall</title>
 		<link rel="icon" href="./img/favicon.ico">
 
-		<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
-		<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
-		<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+		<!-- <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>	 -->
+		<script src="./dependence/vue.js"></script>
 
+		<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+		<!-- <link rel="stylesheet" href="./dependence/index.css"> -->
+
+		<!-- <script src="https://unpkg.com/element-ui/lib/index.js"></script> -->
+		<script src="./dependence/index.js"></script>
+
+		<link rel="stylesheet" href="./common.css">
 		<link rel="stylesheet" href="./main_search.css">
 		<link rel="stylesheet" href="./main_top_navigation.css">
 		<style>
@@ -23,7 +29,7 @@
 	<body id='body'>
 		<div id="app">
 			<!-- 书签导航栏 -->
-			<el-menu class="el-menu-demo" mode="horizontal">
+			<el-menu class="el-menu-demo" mode="horizontal" active-text-color="#ffff0a">
 				<el-submenu :index="key" v-for="(value,key,index) in book" :key="index">
 					<template slot="title">{{key}}</template>
 					<el-menu-item :index="link" v-for="(link,name,index) in value" :key="index">
@@ -31,10 +37,24 @@
 					</el-menu-item>
 				</el-submenu>
 
-				<el-submenu index="3" class="set_up">
+				<el-submenu index="set_up" class="set_up">
 					<template slot="title">设置</template>
 					<el-menu-item index="3-1" @click="img_config()">随机背景</el-menu-item>
-					<el-menu-item index="3-2" @click="set_live2d()">我的老婆</a></el-menu-item>
+				</el-submenu>
+
+				<el-submenu index="mywife" class="mywife">
+					<template slot="title">看板娘</template>
+					<el-menu-item :index="value" v-for="(value,key,index) in mywife" @click="set_live2d(value,key)"
+						:key="index">
+						{{key}}
+					</el-menu-item>
+				</el-submenu>
+
+				<el-submenu index="friend_link" class="friend_link">
+					<template slot="title">友情链接</template>
+					<el-menu-item index="link_1">
+						<a href="http://blog.xlfjh.ml/" target="_blank">友链丨梨衣的master</a>
+					</el-menu-item>
 				</el-submenu>
 			</el-menu>
 
@@ -43,11 +63,12 @@
 				<el-input placeholder="请输入内容" v-model="search_data" class="input-with-select" v-on:input="search_input"
 					@focus="search_focus" @blur="search_blur" @keypress.native.enter="search" clearable>
 					<el-select v-model="select" slot="prepend" placeholder="请选择">
-						<el-option :label="key" :value="key"  v-for="(value,key,index) in select_map" :key="index" ></el-option>
+						<el-option :label="key" :value="key" v-for="(value,key,index) in select_map" :key="index">
+						</el-option>
 					</el-select>
 					<el-button slot="append" icon="el-icon-search" @click="search"></el-button>
 				</el-input>
-				
+
 				<div v-show="is_show" class="history_search_data">
 					<p v-for="item in is_show_data" @mousedown="set_search_data(item)" class="show_history">{{item}}
 					</p>
@@ -55,7 +76,7 @@
 			</div>
 
 		</div>
-		
+
 		<!-- 看板娘 -->
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
 		<script src="live2d-widget/autoload.js" name="live2d"></script>

@@ -15,7 +15,7 @@ vh  相对于视口的高度，视口被均分为100单位的vh */
 .el-menu--horizontal>.el-submenu .el-submenu__title {
 	height: 40px;
 	line-height: 40px;
-	color: rgb(225, 227, 232);
+	color: rgb(240, 240, 240);
 }
 
 /* 导航栏下浮图标 */
@@ -33,6 +33,9 @@ vh  相对于视口的高度，视口被均分为100单位的vh */
 /* 下拉框的透明效果，不知道为啥下面三个一起设置就出现了重影效果，且0.2的效果跟上面0.1的效果差不多 */
 .el-menu--popup-bottom-start {
 	background: rgb(0, 0, 0, 0.2);
+	overflow: scroll;
+	/* height: auto; */
+	max-height: calc(90vh);
 }
 
 .el-menu--horizontal .el-menu .el-menu-item {
@@ -55,6 +58,8 @@ a:hover {
 }
 
 /* 设置右边浮动 */
-.el-menu>.set_up {
+.el-menu>.friend_link,
+.el-menu>.set_up,
+.el-menu>.mywife {
 	float: right;
 }

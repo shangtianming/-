@@ -21,20 +21,24 @@
 	width: 76px;
 }
 
-
+/* 历史记录 */
 .history_search_data{
 	color: rgb(250, 250, 248);
 	font-size: 14px;
 	margin-top: 1px;
+	
+	margin-right: 77px;
+	overflow: scroll;
+	height: calc(50vh);
 }
 
 .show_history{
 	background-color: rgb(1, 1, 1, 0.4);
 	margin-left: 81px;
-	margin-right: 77px;
+	/* margin-right: 77px; */
 	padding-left: 15px;
-	padding-top: 10px;
-	padding-bottom: 11px;
+	padding-top: 8px;
+	padding-bottom: 9px;
 }
 
 .show_history:hover{

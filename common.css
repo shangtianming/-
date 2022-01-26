@@ -1,0 +1,22 @@
+::-webkit-scrollbar {
+	width: 0px;
+	height: 0px;
+	background-color: rgba(240, 240, 240, 0);
+}
+
+/*定义滚动条轨道内阴影+圆角*/
+::-webkit-scrollbar-track {
+	box-shadow: inset000pxrgba(240, 240, 240, 0);
+	border-radius: 10px;
+	background-color: rgba(240, 240, 240, 0);
+
+}
+
+/*定义滑块内阴影+圆角*/
+::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	box-shadow: inset000pxrgba(240, 240, 240, 0);
+	background-color: rgba(240, 240, 240, 0);
+}
+
+
