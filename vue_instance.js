@@ -4,7 +4,7 @@ new Vue({
 		return {
 			// 背景
 			img_index: 0,
-			imgs: ["img/01.jpeg", "img/02.png", "img/04.jpg",
+			imgs: ["img/01.jpeg", "img/02.png", "img/03.jpg","img/04.jpg","img/05.jpg",
 				"img/08.jpeg"
 			],
 			// 搜索配置
