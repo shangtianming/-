@@ -122,7 +122,7 @@ new Vue({
 
 		let history_search_data = window.localStorage.getItem("history_search_data")
 		if (history_search_data != null) {
-			this.history_search_data = JSON.parse(history_search_data)
+			this.history_search_data = JSON.parse(history_search_data).slice(0,10)
 		}
 	}
 })
