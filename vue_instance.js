@@ -51,6 +51,34 @@ new Vue({
 					"FaceBook": "https://zh-cn.facebook.com/",
 					"PornHub": "https://cn.pornhub.com/",
 				}
+			},
+			mywife: {
+				"大老婆": "HyperdimensionNeptunia/vert_normal",
+				"大老婆泳装": "HyperdimensionNeptunia/vert_swimwear",
+				"大老婆礼服": "HyperdimensionNeptunia/vert_classic",
+
+				"二老婆": "HyperdimensionNeptunia/blanc_normal",
+				"二老婆泳装": "HyperdimensionNeptunia/blanc_swimwear",
+				"二老婆礼服": "HyperdimensionNeptunia/blanc_classic",
+
+				"三老婆圣诞礼服": "HyperdimensionNeptunia/neptune_santa",
+				"三老婆泳装": "HyperdimensionNeptunia/nepswim",
+				"三老婆女仆装": "HyperdimensionNeptunia/nepmaid",
+				"三老婆卡哇伊": "HyperdimensionNeptunia/neptune_classic",
+				"三老婆超级卡哇伊": "HyperdimensionNeptunia/nepnep",
+				"三老婆水手服": "HyperdimensionNeptunia/nepgear",
+				"三老婆的粉色套装": "HyperdimensionNeptunia/nepgear_extra",
+				"三老婆的另一套泳装": "HyperdimensionNeptunia/nepgearswim",
+
+				"四老婆": "HyperdimensionNeptunia/noir",
+				"四老婆礼服": "HyperdimensionNeptunia/noir_classic",
+				"四老婆圣诞礼服": "HyperdimensionNeptunia/noir_santa",
+				"四老婆泳装": "HyperdimensionNeptunia/noireswim",
+
+				"五老婆": "ShizukuTalk/shizuku-pajama",
+				"五老婆扎了双马尾": "ShizukuTalk/shizuku-48",
+				"六老婆": "Potion-Maker/Pio",
+				"七老婆": "Potion-Maker/Tia",
 			}
 		}
 	},
@@ -64,18 +92,13 @@ new Vue({
 			body.style.backgroundRepeat = "no-repeat"
 			// this.bg_index = this.bg_index % imgs.length
 		},
-		set_live2d() {
+		set_live2d(value,key) {
 			// window.localStorage.setItem("set_live2d","HyperdimensionNeptunia/vert_swimwear")
 			var config = {
 				waifuPath: 'live2d-widget/waifu-tips.json',
 				cdnPath: 'https://cdn.jsdelivr.net/gh/fghrsh/live2d_api/'
 			}
-			var mywife = ["HyperdimensionNeptunia/vert_swimwear", "HyperdimensionNeptunia/neptune_santa",
-				"HyperdimensionNeptunia/blanc_normal",
-				"HyperdimensionNeptunia/nepswim", "HyperdimensionNeptunia/blanc_swimwear",
-				"ShizukuTalk/shizuku-48"
-			]
-			window.loadWidget(config, "HyperdimensionNeptunia/vert_swimwear")
+			window.loadWidget(config, value , key.slice(0,3))
 		},
 		search() {
 			window.open(this.select_map[this.select] + this.search_data)
@@ -122,7 +145,7 @@ new Vue({
 
 		let history_search_data = window.localStorage.getItem("history_search_data")
 		if (history_search_data != null) {
-			this.history_search_data = JSON.parse(history_search_data).slice(0,10)
+			this.history_search_data = JSON.parse(history_search_data).slice(0, 10)
 		}
 	}
 })

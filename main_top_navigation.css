@@ -55,6 +55,7 @@ a:hover {
 }
 
 /* 设置右边浮动 */
-.el-menu>.set_up {
+.el-menu>.set_up ,
+.el-menu>.mywife{
 	float: right;
 }
