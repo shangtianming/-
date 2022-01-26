@@ -58,4 +58,5 @@ a:hover {
 .el-menu>.set_up ,
 .el-menu>.mywife{
 	float: right;
+	/* overflow: scroll; */
 }

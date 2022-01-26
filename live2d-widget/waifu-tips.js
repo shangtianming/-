@@ -228,12 +228,12 @@ function loadWidget(config,mytarget,mymessage) {
 			// 	localStorage.removeItem("set_live2d");
 			// }
 			if(mytarget != undefined){
-				console.log('=====1',mytarget);
+				// console.log('=====1',mytarget);
 				loadlive2d("live2d", `${cdnPath}model/${mytarget}/index.json`);
 				mytarget= undefined
 			}else if(target == undefined){
 				target = randomSelection(modelList.models[modelId]);
-				console.log('=====2',target);
+				// console.log('=====2',target);
 				loadlive2d("live2d", `${cdnPath}model/${target}/index.json`);
 			}else if(target != undefined) {
 				// console.log('=====3',target);
