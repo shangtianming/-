@@ -53,6 +53,7 @@ new Vue({
 				}
 			},
 			mywife: {
+				// https://cdn.jsdelivr.net/gh/fghrsh/live2d_api/model_list.json
 				"大老婆": "HyperdimensionNeptunia/vert_normal",
 				"大老婆泳装": "HyperdimensionNeptunia/vert_swimwear",
 				"大老婆礼服": "HyperdimensionNeptunia/vert_classic",
