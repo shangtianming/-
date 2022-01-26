@@ -15,7 +15,7 @@ vh  相对于视口的高度，视口被均分为100单位的vh */
 .el-menu--horizontal>.el-submenu .el-submenu__title {
 	height: 40px;
 	line-height: 40px;
-	color: rgb(225, 227, 232);
+	color: rgb(240, 240, 240);
 }
 
 /* 导航栏下浮图标 */
@@ -58,7 +58,8 @@ a:hover {
 }
 
 /* 设置右边浮动 */
-.el-menu>.set_up ,
-.el-menu>.mywife{
+.el-menu>.friend_link,
+.el-menu>.set_up,
+.el-menu>.mywife {
 	float: right;
 }
