@@ -4,7 +4,7 @@
 	/* 如果是横向滚动，则 width设置为 0 */
 	height: 0px;
 	/* 滚动条的背景颜色 */
-	background-color: rgb(0, 0, 0, 0.1);
+	background-color: rgb(1, 1, 1, 0);
 }
 
 /*定义滚动条轨道内阴影+圆角*/
@@ -12,7 +12,6 @@
 	box-shadow: inset000pxrgba(240, 240, 240, 0);
 	border-radius: 5px;
 	background-color: rgba(240, 240, 240, 0);
-
 }
 
 /*定义滑块内阴影+圆角*/
