@@ -105,7 +105,8 @@ new Vue({
 			body.style.backgroundSize = "100% 100%"
 			body.style.backgroundAttachment = "fixed"
 			body.style.backgroundRepeat = "no-repeat"
-			body.style.backgroundColor = this.background.color[this.background.color_index++ % this.background.color.length]
+			body.style.backgroundColor = this.background.color[this.background.color_index++ % this.background
+				.color.length]
 		},
 		set_live2d(value, key) {
 			// window.localStorage.setItem("set_live2d","HyperdimensionNeptunia/vert_swimwear")
@@ -116,11 +117,12 @@ new Vue({
 			window.loadWidget(config, value, key.slice(0, 3))
 		},
 		search() {
-			window.open(this.select_map[this.select] + this.search_data)
-
-			if (this.history_search_data.indexOf(this.search_data) == -1) {
+			const search_data = this.search_data.trim()
+			if (search_data == '' || search_data == undefined) return
+			window.open(this.select_map[this.select] + search_data)
+			if (this.history_search_data.indexOf(search_data) == -1) {
 				// 如果没有找到元素，则添加到本地缓存
-				this.history_search_data.unshift(this.search_data)
+				this.history_search_data.unshift(search_data)
 				window.localStorage.setItem("history_search_data", JSON.stringify(this.history_search_data))
 			}
 		},
