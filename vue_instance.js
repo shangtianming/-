@@ -118,9 +118,8 @@ new Vue({
 		},
 		search() {
 			const search_data = this.search_data.trim()
-			if (search_data == '' || search_data == undefined) return
 			window.open(this.select_map[this.select] + search_data)
-			if (this.history_search_data.indexOf(search_data) == -1) {
+			if (search_data != '' && search_data != undefined && this.history_search_data.indexOf(search_data) == -1) {
 				// 如果没有找到元素，则添加到本地缓存
 				this.history_search_data.unshift(search_data)
 				window.localStorage.setItem("history_search_data", JSON.stringify(this.history_search_data))
