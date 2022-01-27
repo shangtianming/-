@@ -31,7 +31,7 @@
 	margin-left: 81px;
 	margin-right: 77px;
 	overflow-y: scroll;
-	height: calc(50vh);
+	max-height: calc(50vh);
 }
 
 .show_history{

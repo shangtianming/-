@@ -92,28 +92,19 @@ new Vue({
 	methods: {
 		img_config(type, mark) {
 			var body = document.getElementById("body")
-			try {
-				if (type == 1) {
-					body.style.background = ""
-					body.style.backgroundColor = this.background.color[this.background.color_index++ % this
-						.background.color.length]
-				} else if (type == 0 && mark == 0) {
-					body.style.background = "url(" + this.background.imgs[this.background.img_index++ % this
-						.background.imgs.length] + ")"
-				} else if (type == 0 && mark == 1) {
-					let random_index = Math.floor(Math.random() * this.background.imgs.length)
-					console.log("random_index",random_index)
-					body.style.background = "url(" + this.background.imgs[random_index] + ")"
-				}
-			} catch {
+			if (type == 1) {
 				body.style.background = ""
-				body.style.backgroundColor = this.background.color[this.background.color_index++ % this
-					.background.color.length]
+			} else if (type == 0 && mark == 0) {
+				body.style.background = "url(" + this.background.imgs[this.background.img_index++ % this
+					.background.imgs.length] + ")"
+			} else if (type == 0 && mark == 1) {
+				let random_index = Math.floor(Math.random() * this.background.imgs.length)
+				body.style.background = "url(" + this.background.imgs[random_index] + ")"
 			}
 			body.style.backgroundSize = "100% 100%"
 			body.style.backgroundAttachment = "fixed"
 			body.style.backgroundRepeat = "no-repeat"
-
+			body.style.backgroundColor = this.background.color[this.background.color_index++ % this.background.color.length]
 		},
 		set_live2d(value, key) {
 			// window.localStorage.setItem("set_live2d","HyperdimensionNeptunia/vert_swimwear")
