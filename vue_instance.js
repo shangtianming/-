@@ -43,6 +43,7 @@ new Vue({
 				},
 				"工具": {
 					"百度翻译": "https://fanyi.baidu.com/",
+					"百度地图": "https://map.baidu.com",
 					"PyPI · The Python Package Index": "https://pypi.org/"
 				},
 				"邮箱": {
