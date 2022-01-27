@@ -6,7 +6,7 @@ new Vue({
 			background: {
 				img_index: 0,
 				imgs: [
-					"img/01.jpeg", "img/02.png", "img/04.jpg", "img/08.jpeg"
+					"img/01.jpeg", "img/02.png", "img/03.jpg", "img/04.jpeg"
 				],
 				color_index: 0,
 				color: [
@@ -101,9 +101,9 @@ new Vue({
 					body.style.background = "url(" + this.background.imgs[this.background.img_index++ % this
 						.background.imgs.length] + ")"
 				} else if (type == 0 && mark == 1) {
-					body.style.background = "url(" + this.background.imgs[Math.floor(Math.random() * this
-						.background
-						.imgs.length)] + ")"
+					let random_index = Math.floor(Math.random() * this.background.imgs.length)
+					console.log("random_index",random_index)
+					body.style.background = "url(" + this.background.imgs[random_index] + ")"
 				}
 			} catch {
 				body.style.background = ""
