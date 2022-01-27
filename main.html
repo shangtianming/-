@@ -39,7 +39,8 @@
 
 				<el-submenu index="set_up" class="set_up">
 					<template slot="title">设置</template>
-					<el-menu-item index="3-1" @click="img_config()">随机背景</el-menu-item>
+					<el-menu-item index="3-1" @click="img_config(0,0)">图片背景</el-menu-item>
+					<el-menu-item index="3-2" @click="img_config(1)">纯色背景</el-menu-item>
 				</el-submenu>
 
 				<el-submenu index="mywife" class="mywife">

@@ -3,10 +3,16 @@ new Vue({
 	data() {
 		return {
 			// 背景
-			img_index: 0,
-			imgs: ["img/01.jpeg", "img/02.png", "img/03.jpg","img/04.jpg","img/05.jpg",
-				"img/08.jpeg"
-			],
+			background: {
+				img_index: 0,
+				imgs: [
+					"img/01.jpeg", "img/02.png", "img/04.jpg", "img/08.jpeg"
+				],
+				color_index: 0,
+				color: [
+					"#808080", "rgb(131,175,155)", "rgb(30,41,61)"
+				]
+			},
 			// 搜索配置
 			search_data: "",
 			select: "百度",
@@ -84,22 +90,38 @@ new Vue({
 		}
 	},
 	methods: {
-		img_config() {
+		img_config(type, mark) {
 			var body = document.getElementById("body")
-			// body.style.background = "url(" + imgs[this.bg_index++] + ")"
-			body.style.background = "url(" + this.imgs[Math.floor(Math.random() * this.imgs.length)] + ")"
+			try {
+				if (type == 1) {
+					body.style.background = ""
+					body.style.backgroundColor = this.background.color[this.background.color_index++ % this
+						.background.color.length]
+				} else if (type == 0 && mark == 0) {
+					body.style.background = "url(" + this.background.imgs[this.background.img_index++ % this
+						.background.imgs.length] + ")"
+				} else if (type == 0 && mark == 1) {
+					body.style.background = "url(" + this.background.imgs[Math.floor(Math.random() * this
+						.background
+						.imgs.length)] + ")"
+				}
+			} catch {
+				body.style.background = ""
+				body.style.backgroundColor = this.background.color[this.background.color_index++ % this
+					.background.color.length]
+			}
 			body.style.backgroundSize = "100% 100%"
 			body.style.backgroundAttachment = "fixed"
 			body.style.backgroundRepeat = "no-repeat"
-			// this.bg_index = this.bg_index % imgs.length
+
 		},
-		set_live2d(value,key) {
+		set_live2d(value, key) {
 			// window.localStorage.setItem("set_live2d","HyperdimensionNeptunia/vert_swimwear")
 			var config = {
 				waifuPath: 'live2d-widget/waifu-tips.json',
 				cdnPath: 'https://cdn.jsdelivr.net/gh/fghrsh/live2d_api/'
 			}
-			window.loadWidget(config, value , key.slice(0,3))
+			window.loadWidget(config, value, key.slice(0, 3))
 		},
 		search() {
 			window.open(this.select_map[this.select] + this.search_data)
@@ -142,7 +164,7 @@ new Vue({
 		}
 	},
 	created() {
-		this.img_config()
+		this.img_config(0, 1)
 
 		let history_search_data = window.localStorage.getItem("history_search_data")
 		if (history_search_data != null) {
