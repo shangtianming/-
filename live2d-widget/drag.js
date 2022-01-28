@@ -47,8 +47,11 @@ function wait(ms) {
 		
 		// 本来想把这2个参数置为初始值start_left、start_top，后面发现因为窗口的原因，这个数据是不准确的。
 		// 而原本这两个属性就没有，都置为null则就能实现复位的效果
-		waifu.style.left = null;
-		waifu.style.top = null;
+		var i = window.localStorage.getItem("live2d_move")
+		if (i == undefined || i == 0) {
+			waifu.style.left = null;
+			waifu.style.top = null;
+		}
 	};
 }).catch(() => {
 	console.log("没找到看板娘，或许你应该设置再等久一点...");

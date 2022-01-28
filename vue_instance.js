@@ -119,6 +119,14 @@ new Vue({
 			}
 			window.loadWidget(config, value, key.slice(0, 3))
 		},
+		live2d_move() {
+			var i = window.localStorage.getItem("live2d_move")
+			if (i == undefined || i == 0) {
+				window.localStorage.setItem("live2d_move", 1)
+			} else {
+				window.localStorage.setItem("live2d_move", 0)
+			}
+		},
 		search() {
 			const search_data = this.search_data.trim()
 			window.open(this.select_map[this.select] + search_data)
