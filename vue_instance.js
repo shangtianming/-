@@ -125,6 +125,9 @@ new Vue({
 				window.localStorage.setItem("live2d_move", 1)
 			} else {
 				window.localStorage.setItem("live2d_move", 0)
+				let waifu = document.getElementById("waifu")
+				waifu.style.left = null
+				waifu.style.top = null
 			}
 		},
 		search() {
