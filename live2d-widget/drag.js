@@ -26,7 +26,7 @@ function wait(ms) {
 	var start_top = waifu.offsetTop;
 	console.log("找到看板娘了", start_left, start_top);
 	// z-index越大就越在顶层，这里999999应该没人比的过了
-	waifu.setAttribute("style", "z-index:999999; bottom: 0px");
+	waifu.setAttribute("style", "z-index:999998; bottom: 0px");
 	waifu.onmousedown = function(event) {
 		let ev = event || window.event;
 		event.stopPropagation();
