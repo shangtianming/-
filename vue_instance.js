@@ -161,34 +161,25 @@ new Vue({
 		},
 		click_config() {
 			var click_index = this.background.click_index % 3
+			var model = {
+				effect: 'drop',
+				dom: window,
+				timer: 5000,
+				spring: true,
+				height: 3,
+				width: 3,
+				lucency: true
+			}
 			if (click_index == 0) {
-				new VsClick({
-					effect: 'drop',
-					dom: window,
-					timer: 5000,
-					spring: true,
-					height: 10,
-					width: 10,
-					lucency: true
-				});
+				new VsClick(model);
 			} else if (click_index == 1) {
-				new VsClick({
-					effect: 'sudoku',
-					dom: window,
-					timer: 1000,
-					height: 10,
-					width: 10,
-					lucency: true
-				})
+				model.effect = 'sudoku'
+				model.timer = 1000,
+					new VsClick(model)
 			} else {
-				new VsClick({
-					effect: 'spread',
-					dom: window,
-					timer: 5000,
-					height: 10,
-					width: 10,
-					lucency: true
-				})
+				model.effect = 'spread'
+				model.timer = 5000,
+					new VsClick(model)
 			}
 			this.background.click_index++
 		}
