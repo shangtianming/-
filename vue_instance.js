@@ -11,7 +11,8 @@ new Vue({
 				color_index: 0,
 				color: [
 					"#808080", "rgb(131,175,155)", "rgb(30,41,61)"
-				]
+				],
+				click_index: 0
 			},
 			// 搜索配置
 			search_data: "",
@@ -20,8 +21,8 @@ new Vue({
 				"百度": "http://www.baidu.com/s?wd=",
 				"知乎": "https://www.zhihu.com/search?type=content&q=",
 				"谷歌": "http://www.google.com/search?q=",
-				"github":"https://github.com/search?q=",
-				
+				"Github": "https://github.com/search?q=",
+				"Stackoverflow": "https://stackoverflow.com/search?q="
 			},
 			// 历史搜索数据以及展示
 			history_search_data: [],
@@ -121,7 +122,8 @@ new Vue({
 		search() {
 			const search_data = this.search_data.trim()
 			window.open(this.select_map[this.select] + search_data)
-			if (search_data != '' && search_data != undefined && this.history_search_data.indexOf(search_data) == -1) {
+			if (search_data != '' && search_data != undefined && this.history_search_data.indexOf(
+					search_data) == -1) {
 				// 如果没有找到元素，则添加到本地缓存
 				this.history_search_data.unshift(search_data)
 				window.localStorage.setItem("history_search_data", JSON.stringify(this.history_search_data))
@@ -156,10 +158,44 @@ new Vue({
 			console.log("触发set_search_data事件")
 			this.search_data = item
 			this.is_show = false
+		},
+		click_config() {
+			var click_index = this.background.click_index % 3
+			if (click_index == 0) {
+				new VsClick({
+					effect: 'drop',
+					dom: window,
+					timer: 5000,
+					spring: true,
+					height: 10,
+					width: 10,
+					lucency: true
+				});
+			} else if (click_index == 1) {
+				new VsClick({
+					effect: 'sudoku',
+					dom: window,
+					timer: 1000,
+					height: 10,
+					width: 10,
+					lucency: true
+				})
+			} else {
+				new VsClick({
+					effect: 'spread',
+					dom: window,
+					timer: 5000,
+					height: 10,
+					width: 10,
+					lucency: true
+				})
+			}
+			this.background.click_index++
 		}
 	},
 	created() {
 		this.img_config(0, 1)
+		this.click_config()
 
 		let history_search_data = window.localStorage.getItem("history_search_data")
 		if (history_search_data != null) {
