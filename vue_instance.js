@@ -20,6 +20,8 @@ new Vue({
 				"百度": "http://www.baidu.com/s?wd=",
 				"知乎": "https://www.zhihu.com/search?type=content&q=",
 				"谷歌": "http://www.google.com/search?q=",
+				"github":"https://github.com/search?q=",
+				
 			},
 			// 历史搜索数据以及展示
 			history_search_data: [],
