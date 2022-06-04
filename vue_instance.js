@@ -21,6 +21,7 @@ new Vue({
 				"百度": "http://www.baidu.com/s?wd=",
 				"知乎": "https://www.zhihu.com/search?type=content&q=",
 				"谷歌": "http://www.google.com/search?q=",
+				"Yandex": "https://yandex.com/search/?text=",
 				"Github": "https://github.com/search?q=",
 				"Stackoverflow": "https://stackoverflow.com/search?q="
 			},
