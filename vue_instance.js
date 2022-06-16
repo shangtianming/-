@@ -60,7 +60,7 @@ new Vue({
 					"Wikipedia": "https://zh.wikipedia.org/",
 					"YouTube": "https://www.youtube.com",
 					"FaceBook": "https://zh-cn.facebook.com/",
-					"PornHub": "https://cn.pornhub.com/",
+//					"PornHub": "https://cn.pornhub.com/",
 				}
 			},
 			mywife: {
